@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="4.645">
+    <testcase classname="Cart Funtionaolity" name="Changing quantity of product in the Cart" time="4.459">
+        <system-out><![CDATA[Given Click Tab on Home page to product page................................passed
+When Select product and Click Add to cart...................................passed
+Then Verify User able to change the quantity of product in the Cart.........passed
+]]></system-out>
+    </testcase>
+</testsuite>
