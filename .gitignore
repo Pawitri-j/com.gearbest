@@ -1,1 +1,7 @@
 # ca.fitnessavenue
+/test-output/
+/target/
+/.classpath
+/*.project
+/.settings
+/.metadata
