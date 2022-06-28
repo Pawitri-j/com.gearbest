@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import utilities.BaseClass;
 import utilities.CommonMethods;
 
@@ -16,12 +17,16 @@ public class Hooks extends CommonMethods {
 	
 	
 	
-//	@After
-//	public static void destroy() {
-//		
-//		BaseClass.tearDown();
-//		
-//	}
+	@After
+	public static void destroy(Scenario scenario) {
+		
+		if(scenario.isFailed()) {
+			CommonMethods.takeScreenshot_fail("scenarioFail");
+		}
+
+		BaseClass.tearDown();
+		
+	}
 	
 	
 	
