@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="23.547">
-    <testcase classname="Cart Functionality" name="Cart button1" time="9.844">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="26.082">
+    <testcase classname="Cart Functionality" name="Cart button1" time="10.192">
         <system-out><![CDATA[Given User on home page1....................................................passed
 Then Click each tab  on yellow banner. User should navigate to the Cart page after clicking the Cart icon button1.passed
 ]]></system-out>
     </testcase>
-    <testcase classname="Cart Functionality" name="Changing quantity of product in the Cart2" time="9.2">
+    <testcase classname="Cart Functionality" name="Changing quantity of product in the Cart2" time="11.171">
         <system-out><![CDATA[Given Click the category tab on Home page to product page2..................passed
 When Click the chosen product and click Add to cart button2.................passed
 And Click Cart Icon button2.................................................passed
 Then Verify User able to change the quantity of product in the Cart2........passed
 ]]></system-out>
     </testcase>
-    <testcase classname="Cart Functionality" name="Go shopping button3" time="4.324">
+    <testcase classname="Cart Functionality" name="Go shopping button3" time="4.516">
         <system-out><![CDATA[Given Click Cart icon button3...............................................passed
 When User should be able to see and click Go Shopping button3...............passed
 Then Go Shopping button navigates to the homepage3..........................passed

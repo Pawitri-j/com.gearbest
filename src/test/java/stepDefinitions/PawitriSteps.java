@@ -3,6 +3,7 @@ package stepDefinitions;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -42,11 +43,11 @@ public class PawitriSteps extends CommonMethods {
 	@When("Click the chosen product and click Add to cart button2")
 	public void click_the_chosen_product_and_click_add_to_cart_button2() {
 
-		BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 		CommonMethods.waitVisibilityOfList(p.productList);
 		CommonMethods.clickValueFromListByIndex(p.productList, BaseClass.getPropertyInteger("index1"));
 		
 		BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+		CommonMethods.waitForClickability(p.addToCartButton);
 		p.addToCartButton.click();
 	}
 
@@ -59,8 +60,10 @@ public class PawitriSteps extends CommonMethods {
 	@Then("Verify User able to change the quantity of product in the Cart2")
 	public void verify_user_able_to_change_the_quantity_of_product_in_the_cart2() {
 
-		c.quantityBox.clear();
-		c.quantityBox.sendKeys(BaseClass.getPropertyString("quantity"));
+		c.inputQuantity();
+
+		BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+		c.checkQuantityByPrice();
 
 	}
 

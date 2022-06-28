@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -45,13 +46,48 @@ public class CartPage extends CommonMethods {
 	@FindBy(xpath = "//*[@id=\"kDialog_171201\"]/div[2]/div/div[2]/a[1]") 
 	public WebElement confirmDeleteButton;
 	
+	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/p[1]") 
+	public WebElement unitPrice;
+	
+	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/p[1]") 
+	public List<WebElement> unitPriceList;
+	
+	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[4]/p") 
+	public WebElement subTotalPrice;
+	
+	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[4]/p") 
+	public List<WebElement> subTotalPriceList;
+	
+	
+	public void inputQuantity() {
+		quantityBox.clear();
+		quantityBox.sendKeys(BaseClass.getPropertyString("quantity"));
+		quantityBox.sendKeys(Keys.ENTER);
+	}
+	
+	
+	public void checkQuantityByPrice() {
+		
+		BaseClass.getDriver().navigate().refresh();
+		String unitPriceStr = unitPrice.getText().substring(1);
+		System.out.println(unitPriceStr);
+		Double unitPriceDouble =Double.parseDouble(unitPriceStr);
+		
+		String subTotalStr = subTotalPrice.getText().substring(1);
+		System.out.println(subTotalStr);
+		Double subTotalDouble = Double.parseDouble(subTotalStr);
+		boolean checkPrice = (unitPriceDouble*BaseClass.getPropertyDouble("quantity")) == subTotalDouble;
+		System.out.println(unitPriceDouble*BaseClass.getPropertyDouble("quantity"));
+		Assert.assertTrue(checkPrice);
+	}
+	
 	
 	public void checkIfCartisEmpty() {
 		
 		try {
-			if (c.deleteButton.isDisplayed()) {
-				c.deleteButton.click();
-				c.confirmDeleteButton.click();
+			if (deleteButton.isDisplayed()) {
+				deleteButton.click();
+				confirmDeleteButton.click();
 			}
 
 		} catch (Exception e) {
@@ -60,15 +96,15 @@ public class CartPage extends CommonMethods {
 		
 		//BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 		CommonMethods.waitForVisibility(cartEmptyMsg);
-		String cartEmptyText = c.cartEmptyMsg.getText();
+		String cartEmptyText = cartEmptyMsg.getText();
 		Assert.assertTrue(cartEmptyText.contains(BaseClass.getPropertyString("emptyCartMsg")));
 	}
 	
 	
 	public void clickGoShoppingButton() {
 		
-		Assert.assertTrue(c.goShoppingButton.isDisplayed());
-		c.goShoppingButton.click();
+		Assert.assertTrue(goShoppingButton.isDisplayed());
+		goShoppingButton.click();
 	}
 	
 	
