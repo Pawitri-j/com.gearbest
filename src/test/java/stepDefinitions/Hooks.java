@@ -23,7 +23,7 @@ public class Hooks extends CommonMethods {
 		if(scenario.isFailed()) {
 			CommonMethods.takeScreenshot_fail("scenarioFail");
 		}
-		
+
 		BaseClass.tearDown();
 		
 	}

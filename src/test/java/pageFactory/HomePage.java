@@ -23,6 +23,12 @@ public HomePage() {
 
 	@FindBy(xpath = "//*[@id='js-labelHeadCart']/a") public WebElement cartIconButton;
 	
+	@FindBy(xpath = "/html/body/div[1]/div/ul[2]/li[1]/ul/li") public List<WebElement> categoryList;
+	
+	
+	
+	
+	
 	
 	public void checkHomePageURL () {
 		String currentURL = BaseClass.getDriver().getCurrentUrl();
@@ -40,10 +46,17 @@ public HomePage() {
 			CommonMethods.waitForVisibility(c.cartProcessTab);
 			
 			Assert.assertTrue(c.cartProcessTab.isDisplayed());
+			
+			//BaseClass.getDriver().navigate().refresh();
+			c.gearBestLogoCartPage.click();
+			
 		}
 	}
 	
-
+	public void clickOnTheCategoryTab() {
+		
+		CommonMethods.clickSpecificElementInListByText(categoryList, BaseClass.getPropertyString("chosenTab"));
+	}
 
 
 	

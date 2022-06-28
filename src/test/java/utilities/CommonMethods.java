@@ -523,7 +523,7 @@ public class CommonMethods extends PageInitializer {
 
 		}
 
-	//// Created by Pawitri 06/21/22
+	// Created by Pawitri 06/21/22
 	public static void pickRadioButton(List<WebElement> radioButtonList, String textOfRadio) {
 
 		for (int i = 0; i < radioButtonList.size(); i++) {
@@ -545,8 +545,12 @@ public class CommonMethods extends PageInitializer {
 		}
 	}
 	
-	
-	
+	// Created by Pawitri 06/28/22
+	public static void clickValueFromListByIndex(List<WebElement> elements, int index) {
+
+					elements.get(index).click();			
+					
+	}
 	
 	
 	
