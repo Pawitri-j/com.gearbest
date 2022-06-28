@@ -368,12 +368,12 @@ public class CommonMethods extends PageInitializer {
 	public static void clickSpecificElementInListByText(List<WebElement> listOfWebElement,
 			String textOfSpecificElement) {
 
-		String departmentText;
+		String text;
 
-		for (int i = 1; i < listOfWebElement.size(); i++) {
+		for (int i = 0; i < listOfWebElement.size(); i++) {
 
-			departmentText = listOfWebElement.get(i).getText();
-			if (departmentText.contains(textOfSpecificElement)) {
+			text = listOfWebElement.get(i).getText();
+			if (text.contains(textOfSpecificElement)) {
 				listOfWebElement.get(i).click();
 			}
 		}
