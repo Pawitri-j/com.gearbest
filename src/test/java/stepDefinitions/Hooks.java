@@ -16,12 +16,12 @@ public class Hooks extends CommonMethods {
 	
 	
 	
-	@After
-	public static void destroy() {
-		
-		BaseClass.tearDown();
-		
-	}
+//	@After
+//	public static void destroy() {
+//		
+//		BaseClass.tearDown();
+//		
+//	}
 	
 	
 	

@@ -15,7 +15,7 @@ import io.cucumber.junit.CucumberOptions;
 				},
 		features = "src/test/resources/featureFolder/Pawitri.feature",
 		glue = "stepDefinitions",
-		dryRun = false,
+		dryRun = true,
 		monochrome = true
 )
 
