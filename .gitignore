@@ -1,6 +1,11 @@
 # ca.fitnessavenue
 /test-output/
-/target/
+#/target/
+/ScreenShotsGeneral/
+/ScreenShotsForFail/
+/ScreenShotsForPass/
+/JUnit/
+/HTML/
 /.classpath
 /*.project
 /.settings
