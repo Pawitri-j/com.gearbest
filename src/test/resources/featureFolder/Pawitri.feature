@@ -3,9 +3,8 @@ Feature: Cart Functionality
 
 
 Scenario: Cart button1
-Given Click each Tab on Home page1
-When Click on Cart Icon button from that page1
-Then User should navigate to the Cart page after clicking the Cart icon button1
+Given User on home page1
+Then Click each tab  on yellow banner. User should navigate to the Cart page after clicking the Cart icon button1
 
 Scenario: Changing quantity of product in the Cart2
 Given Click Tab on Home page to product page2

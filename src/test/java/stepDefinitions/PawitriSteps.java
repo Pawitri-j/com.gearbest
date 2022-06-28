@@ -6,27 +6,27 @@ import io.cucumber.java.en.When;
 import utilities.CommonMethods;
 
 public class PawitriSteps extends CommonMethods{
+	
 
+	//--------------------------------------Scenario: Cart button1-----------------------------------------------------------//
 
-	@Given("Click each Tab on Home page1")
+	@Given("User on home page1")
 	public void click_each_tab_on_home_page1() {
 	  
+		h.checkHomePageURL();
+		
 	}
 	
-	
-	@When("Click on Cart Icon button from that page1")
-	public void click_on_cart_icon_button_from_that_page1() {
-
-	}
-	
-	
-	@Then("User should navigate to the Cart page after clicking the Cart icon button1")
+	@Then("Click each tab  on yellow banner. User should navigate to the Cart page after clicking the Cart icon button1")
 	public void user_should_navigate_to_the_cart_page_after_clicking_the_cart_icon_button1() {
 	    
+		CommonMethods.waitVisibilityOfList(h.yellowTabList);
+		h.clickCartButtonFromEachPageAndVerifyIfInCart();
+		
 	}
 
 
-//-------------------------------------------------------------------------------------------------//
+//------------------------------------------Changing quantity of product in the Cart2----------------------------------------------------//
 
 	@Given("Click Tab on Home page to product page2")
 	public void click_tab_on_home_page_to_product_page2() {
@@ -47,7 +47,9 @@ public class PawitriSteps extends CommonMethods{
 	public void verify_user_able_to_change_the_quantity_of_product_in_the_cart2() {
 	   
 	}
-//-------------------------------------------------------------------------------------------------//
+	
+	
+//------------------------------------------Scenario: Go shopping button3-------------------------------------------------//
 
 
 	@Given("Click Cart icon button3")
