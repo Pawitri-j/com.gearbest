@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -60,7 +61,66 @@ public HomePage() {
 		CommonMethods.clickSpecificElementInListByText(categoryList, BaseClass.getPropertyString("chosenTab"));
 	}
 
+										//maria//
 
+	@FindBy(xpath="//button[@id='js-btnSubmitSearch']")public static WebElement searchIcon;
+	@FindBy(xpath="//div[@class='select_toggle dropdown_toggle']")public static WebElement allDropDownsearchBTN;
+	@FindBy(xpath="//input[@id='js-iptKeyword']")public static WebElement searchInput;
+	@FindBy(xpath="//div[@class='siteSearch_suggestion']")public static List<WebElement> searchSuggestionsList;
+	@FindBy(xpath="//div[@class='select_menu dropdown_menu']")public static List<WebElement> allDropDownSearchList;
+	@FindBy(xpath="//div[@class='cateMain_cateWord']")public static List<WebElement> searchWordMatching;
+	@FindBy(xpath="//div[@class='searchTitle_wrap']")public static WebElement searchAllTitle;
+
+	
+	public void searchByWord() {
+		CommonMethods.sendText(searchInput,BaseClass.getPropertyString("searchItem") );
+	}
+	
+	public void searchWordInputSuggestionList() {
+		try {
+		
+	
+			for (int i = 0; i < searchSuggestionsList.size(); i++) {
+			 System.out.println(searchSuggestionsList.get(i).getText());
+			Assert.assertTrue(searchSuggestionsList.get(i).getText().contains(BaseClass.getPropertyString("searchItem")));
+		}
+		} catch (StaleElementReferenceException e) { 
+			// because the suggestion list will come up and then gone for
+			// non-matching word
+e.printStackTrace();
+System.out.println(BaseClass.getPropertyString("warning message"));
+}	
+		}
+	
+	public void clickingSearchallBtn() {
+		allDropDownsearchBTN.click();
+	}
+	String SearchAllCategoriesText;
+	public void searchByAllButtonListOptions()  {
+		
+		for(int i=0;i<allDropDownSearchList.size();i++) {
+			allDropDownsearchBTN.click();
+			SearchAllCategoriesText=allDropDownSearchList.get(i).getText();
+			
+			System.out.println("SearchAllTextCategory= "+ SearchAllCategoriesText);
+			
+			
+			CommonMethods.click(allDropDownSearchList.get(i));
+			searchIcon.click();
+			System.out.println("departmennnnnnnn");
+		}
+	}
+	public void searchTitleverification() {
+		waitForVisibility(searchAllTitle);
+		if(SearchAllCategoriesText.equals(searchAllTitle) ) {
+			//Assert.assertTrue(SearchAllCategoriesText, searchAllTitle);
+			
+			Assert.assertTrue(searchAllTitle.isDisplayed());
+		}else {
+			// User should be navigated to the category  being tested
+			System.out.println("please click the category again");
+		}
+	}
 	
 	//Sumetta 06/28/22
 	
@@ -161,4 +221,5 @@ public HomePage() {
 	
 	
 	
+									//maria//
 }// class
