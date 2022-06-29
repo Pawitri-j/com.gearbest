@@ -93,6 +93,71 @@ public HomePage() {
 	@FindBy (xpath = "/html/body/div[2]/div/ul[2]/li[2]/a/font/font")public WebElement changedLanguageHeader;
 	
 
+	//Armeena 06/29/22
+	
+	@FindBy(xpath="//*[@id='js-siteFooterSub']/div/a[1]")
+	public WebElement faceBookIcon;
+	
+	@FindBy(xpath="//*[@id='js-siteFooterSub']/div")
+	public List<WebElement> socialMediaButtonsList;
+	
+	@FindBy(xpath="//*[@id=\"js-siteFooter\"]/div[4]/dl[1]/dd[1]/a")
+	public WebElement aboutUsIcon;
+	
+	@FindBy(xpath="//*[@id=\"js-siteFooter\"]/div[4]/dl[1]/dd/a")
+	public List<WebElement> companyInformationLists;
+	
+	
+	public void yellowBannerTabsNavigate () {
+		
+		String homePageURL;
+		String currentTabURL;
+		
+		for(int i = 0; i < yellowTabList.size();i++) {
+				
+				homePageURL = BaseClass.getDriver().getCurrentUrl();
+				yellowTabList.get(i).click();
+				
+				currentTabURL = BaseClass.getDriver().getCurrentUrl();
+				Assert.assertTrue(homePageURL.equals(currentTabURL));
+				
+			}
+	}
+	
+	public void socialMediaButtonsAreClickableAndNavigate() {
+		
+		String homePageURL;
+		String currentTabURL;
+		
+		for(int i = 0; i < socialMediaButtonsList.size();i++) {
+				
+				homePageURL = BaseClass.getDriver().getCurrentUrl();
+				socialMediaButtonsList.get(i).click();
+				
+				currentTabURL = BaseClass.getDriver().getCurrentUrl();
+				Assert.assertTrue(homePageURL.equals(currentTabURL));
+				
+			}
+		
+	}
+	
+	public void companyInformationLinksNavigate() {
+		
+		String homePageURL;
+		String currentTabURL;
+		
+		for(int i = 0; i < companyInformationLists.size();i++) {
+				
+				homePageURL = BaseClass.getDriver().getCurrentUrl();
+				companyInformationLists.get(i).click();
+				
+				currentTabURL = BaseClass.getDriver().getCurrentUrl();
+				Assert.assertTrue(homePageURL.equals(currentTabURL));
+				
+			}
+	}
+	
+	
 	
 	
 	
