@@ -60,7 +60,9 @@ public class CartPage extends CommonMethods {
 	
 	
 	public void inputQuantity() {
-		quantityBox.clear();
+		
+		quantityBox.sendKeys(Keys.BACK_SPACE);
+		
 		quantityBox.sendKeys(BaseClass.getPropertyString("quantity"));
 		quantityBox.sendKeys(Keys.ENTER);
 	}

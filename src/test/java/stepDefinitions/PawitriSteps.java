@@ -47,8 +47,10 @@ public class PawitriSteps extends CommonMethods {
 		clickValueFromListByIndex(p.productList, BaseClass.getPropertyInteger("index1"));
 		
 		BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+		wait(2);
 		waitForClickability(p.addToCartButton);
 		p.addToCartButton.click();
+		
 	}
 
 	@And("Click Cart Icon button2")
