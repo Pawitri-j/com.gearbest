@@ -1,17 +1,17 @@
 Feature: HomePage9
 
 
-Scenario: View more button
+Scenario: Changing Language
 Given User on home page9
-When Click View more button9
-Then User should be able to see more products after clicking View more button9
+When Click on Language button
+Then Verify if user can change the language
 
 Scenario: Changing currency
 Given User on home page9
-When Click on Ship To(currency) button10
+When Click on Ship To(currency) button
 And Select the currency 
-Then Use should be able to change the currency10
+Then Use should be able to change the currency
 
 Scenario: Category tabs on the Home page
 Given User on home page9
-Then Click on  each Tab under Category and each Tab should navigate to respective page11
+Then Click on  each Tab under Category and each Tab should navigate to respective page
