@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="26.082">
-    <testcase classname="Cart Functionality" name="Cart button1" time="10.192">
-        <system-out><![CDATA[Given User on home page1....................................................passed
-Then Click each tab  on yellow banner. User should navigate to the Cart page after clicking the Cart icon button1.passed
-]]></system-out>
-    </testcase>
-    <testcase classname="Cart Functionality" name="Changing quantity of product in the Cart2" time="11.171">
-        <system-out><![CDATA[Given Click the category tab on Home page to product page2..................passed
-When Click the chosen product and click Add to cart button2.................passed
-And Click Cart Icon button2.................................................passed
-Then Verify User able to change the quantity of product in the Cart2........passed
-]]></system-out>
-    </testcase>
-    <testcase classname="Cart Functionality" name="Go shopping button3" time="4.516">
-        <system-out><![CDATA[Given Click Cart icon button3...............................................passed
-When User should be able to see and click Go Shopping button3...............passed
-Then Go Shopping button navigates to the homepage3..........................passed
-]]></system-out>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="41.233">
+    <testcase classname="HomePage9" name="View more button" time="40.716">
+        <failure message="element not interactable&#10;  (Session info: chrome=103.0.5060.66)&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'PAWITRIJ', ip: '192.168.1.155', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '18.0.1'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.66, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\pawit\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51038}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: d6673f665e011ffac3942b8c51c431ec" type="org.openqa.selenium.ElementNotInteractableException"><![CDATA[Given User on home page9....................................................passed
+When Click View more button9................................................passed
+Then User should be able to see more products after clicking View more button9.failed
+
+StackTrace:
+org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=103.0.5060.66)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'PAWITRIJ', ip: '192.168.1.155', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '18.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.66, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\pawit\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51038}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: d6673f665e011ffac3942b8c51c431ec
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy22.click(Unknown Source)
+	at pageFactory.HomePage.clickViewMoreButton(HomePage.java:79)
+	at stepDefinitions.SumattaSteps.user_should_be_able_to_see_more_products_after_clicking_view_more_button9(SumattaSteps.java:33)
+	at ✽.User should be able to see more products after clicking View more button9(file:///C:/Users/pawit/OneDrive/Desktop/com.gearbest/com.gearbest/src/test/resources/featureFolder/Sumetta.feature:7)
+]]></failure>
     </testcase>
 </testsuite>
