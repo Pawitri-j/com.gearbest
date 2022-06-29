@@ -60,7 +60,9 @@ public class CartPage extends CommonMethods {
 	
 	
 	public void inputQuantity() {
-		quantityBox.clear();
+		
+		quantityBox.sendKeys(Keys.BACK_SPACE);
+		
 		quantityBox.sendKeys(BaseClass.getPropertyString("quantity"));
 		quantityBox.sendKeys(Keys.ENTER);
 	}
@@ -95,7 +97,7 @@ public class CartPage extends CommonMethods {
 		}
 		
 		//BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
-		CommonMethods.waitForVisibility(cartEmptyMsg);
+		waitForVisibility(cartEmptyMsg);
 		String cartEmptyText = cartEmptyMsg.getText();
 		Assert.assertTrue(cartEmptyText.contains(BaseClass.getPropertyString("emptyCartMsg")));
 	}

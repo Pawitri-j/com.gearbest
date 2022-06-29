@@ -27,7 +27,7 @@ public class PawitriSteps extends CommonMethods {
 	@Then("Click each tab  on yellow banner. User should navigate to the Cart page after clicking the Cart icon button1")
 	public void user_should_navigate_to_the_cart_page_after_clicking_the_cart_icon_button1() {
 
-		CommonMethods.waitVisibilityOfList(h.yellowTabList);
+		waitVisibilityOfList(h.yellowTabList);
 		h.clickCartButtonFromEachPageAndVerifyIfInCart();
 
 	}
@@ -43,12 +43,14 @@ public class PawitriSteps extends CommonMethods {
 	@When("Click the chosen product and click Add to cart button2")
 	public void click_the_chosen_product_and_click_add_to_cart_button2() {
 
-		CommonMethods.waitVisibilityOfList(p.productList);
-		CommonMethods.clickValueFromListByIndex(p.productList, BaseClass.getPropertyInteger("index1"));
+		waitVisibilityOfList(p.productList);
+		clickValueFromListByIndex(p.productList, BaseClass.getPropertyInteger("index1"));
 		
 		BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
-		CommonMethods.waitForClickability(p.addToCartButton);
+		wait(2);
+		waitForClickability(p.addToCartButton);
 		p.addToCartButton.click();
+		
 	}
 
 	@And("Click Cart Icon button2")
