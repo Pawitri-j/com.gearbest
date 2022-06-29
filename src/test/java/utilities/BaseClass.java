@@ -31,13 +31,13 @@ public class BaseClass {
 				WebDriverManager.chromedriver().setup();
 //				driver = new ChromeDriver();
 
-				// INIT CHROME OPTIONS
+				// INIT OPTIONS
 				ChromeOptions options = new ChromeOptions();
 				Map<String, Object> prefs = new HashMap<String, Object>();
 				Map<String, Object> profile = new HashMap<String, Object>();
 				Map<String, Object> contentSettings = new HashMap<String, Object>();
 
-				// SET CHROME OPTIONS
+				// SET OPTIONS
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettings.put("notifications", 2);
 				profile.put("managed_default_content_settings", contentSettings);
@@ -51,12 +51,13 @@ public class BaseClass {
 				WebDriverManager.firefoxdriver().setup();
 //				driver = new FirefoxDriver();
 
+				// INIT  OPTIONS
 				FirefoxOptions optionsF = new FirefoxOptions();
 				Map<String, Object> prefsF = new HashMap<String, Object>();
 				Map<String, Object> profileF = new HashMap<String, Object>();
 				Map<String, Object> contentSettingsF = new HashMap<String, Object>();
 
-				// SET CHROME OPTIONS
+				// SET OPTIONS
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettingsF.put("notifications", 2);
 				profileF.put("managed_default_content_settings", contentSettingsF);
@@ -69,13 +70,14 @@ public class BaseClass {
 			case "edge":
 				WebDriverManager.edgedriver().setup();
 //				driver = new EdgeDriver();
-				// INIT CHROME OPTIONS
+				
+				// INIT  OPTIONS
 				EdgeOptions optionsE = new EdgeOptions();
 				Map<String, Object> prefsE = new HashMap<String, Object>();
 				Map<String, Object> profileE = new HashMap<String, Object>();
 				Map<String, Object> contentSettingsE = new HashMap<String, Object>();
 
-				// SET CHROME OPTIONS
+				// SET OPTIONS
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettingsE.put("notifications", 2);
 				profileE.put("managed_default_content_settings", contentSettingsE);
@@ -89,12 +91,13 @@ public class BaseClass {
 				WebDriverManager.safaridriver().setup();
 //				driver = new SafariDriver();
 
+				// INIT  OPTIONS
 				SafariOptions optionsS = new SafariOptions();
 				Map<String, Object> prefsS = new HashMap<String, Object>();
 				Map<String, Object> profileS = new HashMap<String, Object>();
 				Map<String, Object> contentSettingsS = new HashMap<String, Object>();
 
-				// SET CHROME OPTIONS
+				// SET OPTIONS
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettingsS.put("notifications", 2);
 				profileS.put("managed_default_content_settings", contentSettingsS);
@@ -122,8 +125,7 @@ public class BaseClass {
 		driver.get(BaseClass.getPropertyString("url"));
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
-		// driver.manage().deleteAllCookies(); //Don't want this one because want to
-		// ScreenShot reCaptcha
+		// driver.manage().deleteAllCookies(); //Don't want this one because want to ScreenShot reCaptcha
 		return driver;
 
 	}
