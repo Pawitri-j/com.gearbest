@@ -95,7 +95,7 @@ public class CartPage extends CommonMethods {
 		}
 		
 		//BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
-		CommonMethods.waitForVisibility(cartEmptyMsg);
+		waitForVisibility(cartEmptyMsg);
 		String cartEmptyText = cartEmptyMsg.getText();
 		Assert.assertTrue(cartEmptyText.contains(BaseClass.getPropertyString("emptyCartMsg")));
 	}

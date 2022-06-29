@@ -552,8 +552,32 @@ public class CommonMethods extends PageInitializer {
 					
 	}
 	
+	// Created by Pawitri 06/29/22
+	public static void actionClick(WebElement source) {
+		Actions actions = new Actions(driver);
+		actions.click(source).perform();
+	}
 	
+	// Created by Pawitri 06/29/22
+	public static void actionClickInListByText(List<WebElement> list, String text) {
+		
+		Actions actions = new Actions(driver);
+		
+		for (int i =0; i< list.size();i++) {
+				
+				if (list.get(i).getText().equalsIgnoreCase(text)) {
+					//actions.moveToElement(list.get(i)).perform();;
+					actions.click(list.get(i)).perform();
+					break;
+				}
+				
+				
+				
+				
+		}
 	
-	
+	}
 
+	
+	
 }//class
