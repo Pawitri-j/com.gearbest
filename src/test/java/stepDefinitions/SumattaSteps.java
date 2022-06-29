@@ -41,6 +41,7 @@ public class SumattaSteps extends CommonMethods{
 	BaseClass.getDriver().switchTo().parentFrame();
 	BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 	
+	wait(2);
 	System.out.println(h.googleLanguageButton.getText());
 	Assert.assertTrue(h.googleLanguageButton.getText().contains(BaseClass.getPropertyString("language")));
 	}

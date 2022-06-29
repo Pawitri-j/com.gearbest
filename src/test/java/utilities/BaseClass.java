@@ -1,11 +1,14 @@
 package utilities;
 
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -25,7 +28,22 @@ private static WebDriver driver;
 			switch(BaseClass.getPropertyString("browser")) {
 			case "chrome": 
 				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();
+//				driver = new ChromeDriver();
+				
+	                // INIT CHROME OPTIONS
+	                ChromeOptions options = new ChromeOptions();
+	                Map<String, Object> prefs = new HashMap<String, Object>();
+	                Map<String, Object> profile = new HashMap<String, Object>();
+	                Map<String, Object> contentSettings = new HashMap<String, Object>();
+
+	                // SET CHROME OPTIONS
+	                // 0 - Default, 1 - Allow, 2 - Block
+	                contentSettings.put("notifications", 2);
+	                profile.put("managed_default_content_settings", contentSettings);
+	                prefs.put("profile", profile);
+	                options.setExperimentalOption("prefs", prefs);
+	                driver = new ChromeDriver(options);
+	              
 				
 				break;
 				
