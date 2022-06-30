@@ -61,7 +61,7 @@ public class HomePage extends CommonMethods{
 
 	//maria//
 
-	@FindBy(xpath="//button[@id='js-btnSubmitSearch']")public static WebElement searchIcon;
+	@FindBy(xpath="//button[@id='js-btnSubmitSearch']")public WebElement searchIcon;
 	@FindBy(xpath="//div[@class='select_toggle dropdown_toggle']")public static WebElement allDropDownsearchBTN;
 	@FindBy(xpath="//input[@id='js-iptKeyword']")public  WebElement searchInput;
 	@FindBy(xpath="//div[@class='siteSearch_suggestion']")public static List<WebElement> searchSuggestionsList;
