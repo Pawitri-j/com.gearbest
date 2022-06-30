@@ -14,8 +14,9 @@ public class AlipSteps extends CommonMethods{
 //	Scenario: ProductPage Test 1
 	@When("User search for product in search bar")
 	public void user_search_for_product_in_search_bar() {
-	    CommonMethods.sendText(h.searchInput, "iphone");
-	    CommonMethods.jsClick(h.searchIcon);
+	    CommonMethods.sendText(h.searchInput, "phone");
+	    CommonMethods.wait(3);
+	    CommonMethods.click(h.searchIcon);
 	}
 	@Then("User should be on ProductPage")
 	public void user_should_be_on_product_page() {
