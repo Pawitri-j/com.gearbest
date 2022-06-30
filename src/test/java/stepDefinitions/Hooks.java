@@ -17,16 +17,16 @@ public class Hooks extends CommonMethods {
 	
 	
 	
-//	@After
-//	public static void destroy(Scenario scenario) {
-//		
-//		if(scenario.isFailed()) {
-//			CommonMethods.takeScreenshot_fail("scenarioFail");
-//		}
-//
-//		BaseClass.tearDown();
-//		
-//	}
+	@After
+	public static void destroy(Scenario scenario) {
+		
+		if(scenario.isFailed()) {
+			CommonMethods.takeScreenshot_fail("scenarioFail");
+		}
+
+		BaseClass.tearDown();
+		
+	}
 	
 	
 	
