@@ -1,7 +1,6 @@
 package pageFactory;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -11,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.BaseClass;
 import utilities.CommonMethods;
-import utilities.Constants;
 
 public class HomePage extends CommonMethods{
 
@@ -245,10 +243,14 @@ public class HomePage extends CommonMethods{
 
 		}
 	}
+	
+	
+	
+	
+	
+									//maria//
 
-
-
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
+	// Alip
 
 }// class

@@ -570,10 +570,7 @@ public class CommonMethods extends PageInitializer {
 					actions.click(list.get(i)).perform();
 					break;
 				}
-				
-				
-				
-				
+
 		}
 	
 	}
