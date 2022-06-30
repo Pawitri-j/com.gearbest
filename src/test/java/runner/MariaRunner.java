@@ -15,7 +15,7 @@ import io.cucumber.junit.CucumberOptions;
 		features = "src/test/resources/featureFolder/Maria.feature",
 		glue = "stepDefinitions",
 		dryRun = false,
-				tags="@SmokeTest",
+				//tags="@SmokeTest",
 		monochrome = true)
 public class MariaRunner {
 
