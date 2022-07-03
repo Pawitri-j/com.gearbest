@@ -59,16 +59,16 @@ public class CartPage extends CommonMethods {
 	public List<WebElement> subTotalPriceList;
 	
 	
-	public void inputQuantity() {
+	public void inputQuantity(WebElement quantityBox, String quantity ) {
 		
 		quantityBox.sendKeys(Keys.BACK_SPACE);
 		
-		quantityBox.sendKeys(BaseClass.getPropertyString("quantity"));
+		quantityBox.sendKeys(quantity);
 		quantityBox.sendKeys(Keys.ENTER);
 	}
 	
 	
-	public void checkQuantityByPrice() {
+	public void checkQuantityByPrice(WebElement unitPrice, WebElement subTotalPrice) {
 		
 		BaseClass.getDriver().navigate().refresh();
 		String unitPriceStr = unitPrice.getText().substring(1);
@@ -78,29 +78,17 @@ public class CartPage extends CommonMethods {
 		String subTotalStr = subTotalPrice.getText().substring(1);
 		System.out.println(subTotalStr);
 		Double subTotalDouble = Double.parseDouble(subTotalStr);
-		boolean checkPrice = (unitPriceDouble*BaseClass.getPropertyDouble("quantity")) == subTotalDouble;
+		
+		Double totalDouble = (unitPriceDouble*BaseClass.getPropertyDouble("quantity"));
+		
+		boolean checkPrice = ( totalDouble == subTotalDouble || totalDouble+0.05 >= subTotalDouble && totalDouble-0.05 <= totalDouble );
+				
 		System.out.println(unitPriceDouble*BaseClass.getPropertyDouble("quantity"));
 		Assert.assertTrue(checkPrice);
 	}
 	
 	
-	public void checkIfCartisEmpty() {
-		
-		try {
-			if (deleteButton.isDisplayed()) {
-				deleteButton.click();
-				confirmDeleteButton.click();
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		//BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
-		waitForVisibility(cartEmptyMsg);
-		String cartEmptyText = cartEmptyMsg.getText();
-		Assert.assertTrue(cartEmptyText.contains(BaseClass.getPropertyString("emptyCartMsg")));
-	}
+	
 	
 	
 	public void clickGoShoppingButton() {

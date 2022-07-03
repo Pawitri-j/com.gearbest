@@ -37,27 +37,9 @@ public class HomePage extends CommonMethods{
 	}
 
 
-	public void clickCartButtonFromEachPageAndVerifyIfInCart () {
 
-		for(int i = 0; i < yellowTabList.size();i++) {
 
-			yellowTabList.get(i).click();
-
-			cartIconButton.click();
-			CommonMethods.waitForVisibility(c.cartProcessTab);
-
-			Assert.assertTrue(c.cartProcessTab.isDisplayed());
-
-			//BaseClass.getDriver().navigate().refresh();
-			c.gearBestLogoCartPage.click();
-
-		}
-	}
-
-	public void clickOnTheCategoryTab() {
-
-		CommonMethods.clickSpecificElementInListByText(categoryList, BaseClass.getPropertyString("chosenTab"));
-	}
+	
 
 	//maria//
 
@@ -92,7 +74,7 @@ public class HomePage extends CommonMethods{
 			System.out.println(BaseClass.getPropertyString("warning message"));
 		}	
 	}
-	///Scenario 2 <Maria///
+	///Scenario 2 Maria//
 	public void clickingSearchallBtn() {
 		allDropDownsearchBTN.click();
 	}
@@ -116,10 +98,7 @@ public class HomePage extends CommonMethods{
 	}
 
 							///Scenario 3 maria ////
-	public void searchByItemName() {
 
-		CommonMethods.sendText(searchInput,BaseClass.getPropertyString("searchItemName") );
-	}
 	public void clickSearchIcon() {
 		searchIcon.click();
 	}
@@ -185,7 +164,7 @@ public class HomePage extends CommonMethods{
 	@FindBy(xpath="//*[@id='js-siteFooterSub']/div/a[1]")
 	public WebElement faceBookIcon;
 
-	@FindBy(xpath="//*[@id='js-siteFooterSub']/div")
+	@FindBy(xpath="//*[@id=\"js-siteFooterSub\"]/div/a/i")
 	public List<WebElement> socialMediaButtonsList;
 
 	@FindBy(xpath="//*[@id=\"js-siteFooter\"]/div[4]/dl[1]/dd[1]/a")

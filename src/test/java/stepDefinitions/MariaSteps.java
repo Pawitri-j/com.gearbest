@@ -2,31 +2,15 @@ package stepDefinitions;
 
 import org.junit.Assert;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import utilities.BaseClass;
 import utilities.CommonMethods;
 
 public class MariaSteps extends CommonMethods {
-	@Given("User is on Home Page")
-	public void user_is_on_home_page() {
-	   String currentUrl=BaseClass.getDriver().getCurrentUrl();
-	   Assert.assertTrue(currentUrl.equals(BaseClass.getPropertyString("homePageURL")));
-	}
-	@Given("User clicks searchIcon")
-	public  void user_clicks_search_icon() {
-		h.searchInput.click();
 	
-	}
 
-   @Given("User is on Home Page and inputs {string}")
-   public void user_is_on_home_page_and_inputs(String string) {
-	   
-	  h.searchByWord();
-	   
-   
-}
-   							////scenario 2/////
+	//Scenario 1  Verify search functionality by keyword input
 	@Then("Verify User should be able to see search list of searchItem")
 	public void verify_user_should_be_able_to_see_search_list_of_search_item() {
 		 h.searchWordInputSuggestionList();
@@ -34,13 +18,14 @@ public class MariaSteps extends CommonMethods {
 	
 	
 	
-
+	//Scenario 2 Verify All button drop down list functionality
+	
 	@Given("User clicks All button on searchBar")
 	public void user_clicks_all_button_on_search_bar() {
 	    h.clickingSearchallBtn();
 	}
 
-	@Given("User clicks on each Tab in Options list")
+	@And("User clicks on each Tab in Options list")
 	public void user_clicks_on_each_tab_in_options_list()  {
 	  h.searchByAllButtonListOptions();
 	}
@@ -55,20 +40,8 @@ public class MariaSteps extends CommonMethods {
 	
 	
 	
-							//Scenario 3 ///
+//Scenario 3 Verify search functionality by item name
 	
-	
-
-	@Given("User inputs items name in search bar")
-	public void user_inputs_items_name_in_search_bar() {
-	   h.searchByItemName();
-	}
-
-	@Given("User clicks search icon11")
-	public void user_clicks_search_icon11() {
-	    h.clickSearchIcon();
-	}
-
 	@Then("User should be navigated to searched item page")
 	public void user_should_be_navigated_to_searched_item_page() {
 	   h.verifyItemsPage();
