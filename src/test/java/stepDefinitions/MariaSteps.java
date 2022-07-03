@@ -11,12 +11,11 @@ public class MariaSteps extends CommonMethods {
 	
 
 	//Scenario 1  Verify search functionality by keyword input
-	@Then("Verify User should be able to see search list of searchItem")
-	public void verify_user_should_be_able_to_see_search_list_of_search_item() {
+	@Then("Verify User should be able to see suggestion drop down that matching the in put keyword")
+	public void verify_suggestion() {
 		 h.searchWordInputSuggestionList();
 	}
-	
-	
+
 	
 	//Scenario 2 Verify All button drop down list functionality
 	

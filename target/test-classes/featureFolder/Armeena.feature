@@ -1,3 +1,4 @@
+@Armeena
 Feature: HomePage Functionality
 
   Scenario: Yellow Banner tabs navigate

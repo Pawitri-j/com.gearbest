@@ -19,18 +19,19 @@ public class ProductPage extends CommonMethods {
 	}
 
 //Pawitri 06/28/22
-	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div[1]/div[1]/div/div[2]/ul/li")
+	@FindBy(xpath = "//*[@id='siteWrap']/div[1]/div[1]/div/div[2]/ul/li")
 	public List<WebElement> productList;
-
-	@FindBy(xpath = "//*[@id='goodsDetail']/div[2]/div[1]/div[2]/div[5]/a[1]")
-	public WebElement addToCartButton;
+	//*[@id='siteWrap']/div/div/div/div/ul/li
+	
+	@FindBy(xpath = "//*[@id='goodsDetail']/div[2]/div[1]/div[2]/div/a[1] ")
+	public List <WebElement> addToCartButtonList;
 	
 	
 //Alip 06/29/22
 	@FindBy(xpath = "//*[@id='siteWrap']/div[1]/div[1]/div/div[2]/ul/li/div/p[2]")
 	public List<WebElement> productsPriceList;
 	
-	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div/div/div/div/div/p/a  ")
+	@FindBy(xpath = "//*[@id='siteWrap']/div/div/div/div/div/p/a")
 	public List<WebElement> sortByButtonsList;
 	
 	
@@ -49,7 +50,7 @@ public class ProductPage extends CommonMethods {
 	@FindBy(xpath = "//*[@id='filter-price-to']")
 	public WebElement maxBox;
 	
-	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div/div/div/div/div/div/div/div/div/a")
+	@FindBy(xpath = "//*[@id='siteWrap']/div/div/div/div/div/div/div/div/div/a")
 	public WebElement okButtonInMinMax;
 	
 	

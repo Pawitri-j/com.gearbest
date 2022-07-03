@@ -4,9 +4,9 @@ Feature: Search functionality
   Background: 
   Given User is navigated to Home page
 
-  Scenario: Verify search functionality by keyword input
+  Scenario: Verify search suggestion by keyword input
     Given User search for product in search bar input "car"
-    Then Verify User should be able to see search list of searchItem
+    Then Verify User should be able to see suggestion drop down that matching the in put keyword
 
   Scenario: Verify All button drop down list functionality
     Given User clicks All button on searchBar
