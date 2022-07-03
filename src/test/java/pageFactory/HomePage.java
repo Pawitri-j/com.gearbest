@@ -41,7 +41,7 @@ public class HomePage extends CommonMethods{
 
 	
 
-	//maria//
+	//Maria 
 
 	@FindBy(xpath="//button[@id='js-btnSubmitSearch']")public WebElement searchIcon;
 	@FindBy(xpath="//div[@class='select_toggle dropdown_toggle']")public static WebElement allDropDownsearchBTN;
@@ -132,28 +132,32 @@ public class HomePage extends CommonMethods{
 
 	@FindBy(xpath = "/html/body/div[1]/div/ul[1]/li[4]") public WebElement languageButton;
 
-	@FindBy(xpath = "//*[@id=\":0.targetLanguage\"]/span/a") public WebElement googleLanguageButton;
+	@FindBy(xpath = "//*[@id=':0.targetLanguage']/span/a") public WebElement googleLanguageButton;
 
-	@FindBy(xpath = "//*[@id=\":1.menuBody\"]/table/tbody/tr/td/a/div/span[2]")
+	@FindBy(xpath = "//*[@id=':1.menuBody']/table/tbody/tr/td/a/div/span[2]")
 	public List <WebElement> languageList;
 
-	@FindBy(xpath = "//*[@id=\"js-panelIndexRecom\"]/div") public List <WebElement> productOnHomePageList;
+	@FindBy(xpath = "//*[@id='js-panelIndexRecom']/div") public List <WebElement> productOnHomePageList;
 
-	@FindBy(xpath = "//*[@id=\"js-panelHeadCurrency\"]")public WebElement currencyDropDownBox;
+	@FindBy(xpath = "//*[@id='js-panelHeadCurrency']")public WebElement currencyDropDownBox;
 
-	@FindBy (xpath = "//*[@id=\"js-panelHeadCurrency\"]/ul/li") public List<WebElement> currencyList;
+	@FindBy (xpath = "//*[@id='js-panelHeadCurrency']/ul/li") public List<WebElement> currencyList;
 
-	@FindBy(xpath = "//*[@id=\"js-labelShipTo\"]") public WebElement shipToButton;
+	@FindBy(xpath = "//*[@id='js-labelShipTo']") public WebElement shipToButton;
 
-	@FindBy(xpath = "//*[@id=\"js-labelShipTo\"]/span[2]")public WebElement currencyShow;
+	@FindBy(xpath = "//*[@id='js-labelShipTo']/span[2]")public WebElement currencyShow;
 
-	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div[1]/div[1]/div/header[2]/div[1]/div/div/div")
+	
+	@FindBy(xpath = "//*[@id='siteWrap']/div/div/div/header/div/div/div/div")
 	public WebElement eachPageCategoryHeader;
+	//*[@id='siteWrap']/div[1]/div[1]/div/header[2]/div[1]/div/div/div
 
-	@FindBy (xpath = "/html/body/div[1]/div/ul[2]/li[1]/span") public  WebElement categoryButton;
-
-	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div/div[1]/div/div/div[1]/h1") public  WebElement promotionBanner;
-
+	@FindBy (xpath = "/html/body/div[1]/div/ul[2]/li/span") public  WebElement categoryButton;
+	//     /html/body/div[1]/div/ul[2]/li[1]/span
+	
+	@FindBy(xpath = "//*[@id='siteWrap']/div/div/div/div/div/h1") public  WebElement promotionBanner;
+	//*[@id='siteWrap']/div/div[1]/div/div/div[1]/h1
+	
 	@FindBy(xpath = "/html/body/iframe[2]") public WebElement googleFrame;
 
 	@FindBy (xpath = "/html/body/div[2]/div/ul[2]/li[2]/a/font/font")public WebElement changedLanguageHeader;
@@ -164,13 +168,10 @@ public class HomePage extends CommonMethods{
 	@FindBy(xpath="//*[@id='js-siteFooterSub']/div/a[1]")
 	public WebElement faceBookIcon;
 
-	@FindBy(xpath="//*[@id=\"js-siteFooterSub\"]/div/a/i")
+	@FindBy(xpath="//*[@id='js-siteFooterSub']/div/a/i")
 	public List<WebElement> socialMediaButtonsList;
 
-	@FindBy(xpath="//*[@id=\"js-siteFooter\"]/div[4]/dl[1]/dd[1]/a")
-	public WebElement aboutUsIcon;
-
-	@FindBy(xpath="//*[@id=\"js-siteFooter\"]/div[4]/dl[1]/dd/a")
+	@FindBy(xpath="//*[@id='js-siteFooter']/div[4]/dl[1]/dd/a")
 	public List<WebElement> companyInformationLists;
 
 
@@ -227,9 +228,6 @@ public class HomePage extends CommonMethods{
 	
 	
 	
-									//maria//
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-	// Alip
 
 }// class
