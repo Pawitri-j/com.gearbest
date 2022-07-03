@@ -30,7 +30,7 @@ public class ProductPage extends CommonMethods {
 	@FindBy(xpath = "//*[@id='siteWrap']/div[1]/div[1]/div/div[2]/ul/li/div/p[2]")
 	public List<WebElement> productsPriceList;
 	
-	@FindBy(xpath = "//*[@id='siteWrap']/div[1]/div[1]/div/div[1]/div[3]/p/a")
+	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div/div/div/div/div/p/a  ")
 	public List<WebElement> sortByButtonsList;
 	
 	
@@ -49,7 +49,7 @@ public class ProductPage extends CommonMethods {
 	@FindBy(xpath = "//*[@id='filter-price-to']")
 	public WebElement maxBox;
 	
-	@FindBy(xpath = "//*[@id='siteWrap']/div[1]/div[1]/div/div[1]/div[2]/div/div/div/div/a")
+	@FindBy(xpath = "//*[@id=\"siteWrap\"]/div/div/div/div/div/div/div/div/div/a")
 	public WebElement okButtonInMinMax;
 	
 	

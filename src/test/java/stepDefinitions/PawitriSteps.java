@@ -3,7 +3,6 @@ package stepDefinitions;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -15,79 +14,97 @@ import utilities.Constants;
 
 public class PawitriSteps extends CommonMethods {
 
-	// Scenario: Cart button1
+	//1. Scenario: Cart button
 
-	@Given("User on home page1")
-	public void click_each_tab_on_home_page1() {
+	@Given("User is navigated to Home page")
+	public void User_is_on_Home_page() {
 
 		h.checkHomePageURL();
 
 	}
 
-	@Then("Click each tab  on yellow banner. User should navigate to the Cart page after clicking the Cart icon button1")
-	public void user_should_navigate_to_the_cart_page_after_clicking_the_cart_icon_button1() {
+	@Then("Click each tab on yellow banner. User should navigate to the Cart page after clicking the Cart icon button")
+	public void user_should_navigate_to_the_cart_page_after_clicking_the_cart_icon_button() {
 
 		waitVisibilityOfList(h.yellowTabList);
-		h.clickCartButtonFromEachPageAndVerifyIfInCart();
 
+		// loop click cart icon from different pages
+		for (int i = 0; i < h.yellowTabList.size(); i++) {
+
+			h.yellowTabList.get(i).click();
+
+			h.cartIconButton.click();
+			CommonMethods.waitForVisibility(c.cartProcessTab);
+
+			Assert.assertTrue(c.cartProcessTab.isDisplayed());
+
+			// BaseClass.getDriver().navigate().refresh();
+			c.gearBestLogoCartPage.click();
+
+		}
 	}
 
-// Scenario: Changing quantity of product in the Cart2
+//2. Scenario: Changing quantity of product in the Cart
 
-	@Given("Click the category tab on Home page to product page2")
-	public void click_tab_on_home_page_to_product_page2() {
+	@Given("Click the category tab")
+	public void click_tab_on_home_page_to_product_page() {
 
-		h.clickOnTheCategoryTab();
+		clickSpecificElementInListByText(h.categoryList, BaseClass.getPropertyString("chosenTab"));
 	}
 
-	@When("Click the chosen product and click Add to cart button2")
-	public void click_the_chosen_product_and_click_add_to_cart_button2() {
+	@When("Click the chosen product and click Add to cart button")
+	public void click_the_chosen_product_and_click_add_to_cart_button() {
 
 		waitVisibilityOfList(p.productList);
 		clickValueFromListByIndex(p.productList, BaseClass.getPropertyInteger("index1"));
-		
+
 		BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 		wait(2);
 		waitForClickability(p.addToCartButton);
 		p.addToCartButton.click();
-		
+
 	}
 
-	@And("Click Cart Icon button2")
+	@And("Click Cart Icon button")
 	public void click_cart_icon_button2() {
 
 		h.cartIconButton.click();
 	}
 
-	@Then("Verify User able to change the quantity of product in the Cart2")
-	public void verify_user_able_to_change_the_quantity_of_product_in_the_cart2() {
-
-		c.inputQuantity();
-
+	@Then("Verify User able to change the quantity of product in the Cart")
+	public void verify_user_able_to_change_the_quantity_of_product_in_the_cart() {
+wait(5);
+		c.inputQuantity(c.quantityBox, BaseClass.getPropertyString("quantity"));
+wait(5);
 		BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
-		c.checkQuantityByPrice();
+		c.checkQuantityByPrice(c.unitPrice, c.subTotalPrice);
 
 	}
 
-//Scenario: Go shopping button3
+//3. Scenario: Go shopping button
 
-	@Given("Click Cart icon button3")
-	public void click_cart_icon_button3() {
+
+	@When("User should be able to see and click Go Shopping button")
+	public void user_should_be_able_to_see_and_click_go_shopping_button() {
+
+		// check if the cart is empty
+		try {
+			if (c.deleteButton.isDisplayed()) {
+				c.deleteButton.click();
+				c.confirmDeleteButton.click();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		h.cartIconButton.click();
-	}
-
-	@When("User should be able to see and click Go Shopping button3")
-	public void user_should_be_able_to_see_and_click_go_shopping_button3() {
-
-		c.checkIfCartisEmpty();
+		//BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+		waitForVisibility(c.cartEmptyMsg);
+		String cartEmptyText = c.cartEmptyMsg.getText();
+		Assert.assertTrue(cartEmptyText.contains(BaseClass.getPropertyString("emptyCartMsg")));
 		c.clickGoShoppingButton();
 	}
+	
 
-	@Then("Go Shopping button navigates to the homepage3")
-	public void Go_Shopping_button_navigates_to_the_homepage3() {
-
-		h.checkHomePageURL();
-	}
 
 }// class

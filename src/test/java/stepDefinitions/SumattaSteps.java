@@ -13,13 +13,8 @@ import utilities.Constants;
 
 public class SumattaSteps extends CommonMethods {
 
-//------Scenario: Changing Language--------
+//1. Scenario: Changing Language
 
-	@Given("User on home page9")
-	public void user_on_home_page9() {
-
-		h.checkHomePageURL();
-	}
 
 	@When("Click on Language button")
 	public void Click_on_Language_button() {
@@ -44,7 +39,7 @@ public class SumattaSteps extends CommonMethods {
 		Assert.assertTrue(h.googleLanguageButton.getText().contains(BaseClass.getPropertyString("language")));
 	}
 
-//----------Scenario: Changing currency---------------
+//2. Scenario: Changing currency
 
 	@When("Click on Ship To\\(currency) button")
 	public void click_on_ship_to_currency_button() {
@@ -67,15 +62,16 @@ public class SumattaSteps extends CommonMethods {
 		Assert.assertTrue(h.currencyShow.getText().contains(BaseClass.getPropertyString("currency")));
 	}
 
-//-----------Scenario: Category tabs on the Home page----------
+//3. Scenario: Category tabs on the Home page
 
 	@Then("Click on  each Tab under Category and each Tab should navigate to respective page")
 	public void click_on_each_tab_under_category_and_each_tab_should_navigate_to_respective_page() {
 
-		hover(h.categoryButton);
-
+			waitVisibilityOfList(h.categoryList);
 		for (int i = 0; i < h.categoryList.size(); i++) {
 
+			waitVisibilityOfList(h.categoryList);
+			
 			String categoryName = h.categoryList.get(i).getText();
 			System.out.println(categoryName);
 
@@ -95,7 +91,7 @@ public class SumattaSteps extends CommonMethods {
 				Assert.assertTrue(categoryName.equalsIgnoreCase(eachCategoryName));
 			}
 
-			hover(h.categoryButton);
+		BaseClass.getDriver().navigate().back();
 
 		}
 	}
