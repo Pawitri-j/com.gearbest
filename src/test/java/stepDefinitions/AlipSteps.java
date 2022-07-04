@@ -13,7 +13,7 @@ public class AlipSteps extends CommonMethods{
 	
 	
 
-//	Scenario: ProductPage Test 1
+//	Alip Scenario: ProductPage Test 1
 
 
 	@When("User search for product in search bar input {string}")
@@ -51,7 +51,7 @@ public class AlipSteps extends CommonMethods{
 	
 	
 	
-//	Scenario: ProductPage Test 2
+//	Alip Scenario: ProductPage Test 2
 	@Then("Click price button in sort by")
 	public void click_price_button_in_sort_by() {
 		//CommonMethods.waitForClickability(p.sortByButtonsList.get(0));
@@ -84,7 +84,7 @@ public class AlipSteps extends CommonMethods{
 
 	
 	
-//	Scenario: ProductPage Test 3
+//	Alip Scenario: ProductPage Test 3
 	
 	@Then("Click and enter {string} and {string} price")
 	public void click_and_enter_and_price(String minPrice, String maxPrice) {

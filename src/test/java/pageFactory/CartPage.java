@@ -63,6 +63,7 @@ public class CartPage extends CommonMethods {
 	
 	public void inputQuantity(WebElement quantityBox, String quantity ) {
 		
+		waitForVisibility(quantityBox);
 		quantityBox.sendKeys(Keys.BACK_SPACE);
 		
 		quantityBox.sendKeys(quantity);
