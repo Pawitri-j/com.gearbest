@@ -17,7 +17,7 @@ import io.cucumber.junit.CucumberOptions;
 		,glue = {"mainPK"}
 		,dryRun = false
 		,monochrome = true
-		,tags= "@Armeena"
+		// ,tags= "@Armeena"
 		
 		
 		)
