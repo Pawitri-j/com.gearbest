@@ -1,7 +1,5 @@
 package pageFactory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
@@ -170,62 +168,59 @@ public class HomePage extends CommonMethods{
 	@FindBy(xpath="//*[@id='js-siteFooterSub']/div/a[1]")
 	public WebElement faceBookIcon;
 
-	@FindBy(xpath="//*[@id='js-siteFooterSub']/div/a")
+	@FindBy(xpath="//*[@id='js-siteFooterSub']/div/a/i")
 	public List<WebElement> socialMediaButtonsList;
 
 	@FindBy(xpath="//*[@id='js-siteFooter']/div[4]/dl[1]/dd/a")
-	public List<WebElement> companyInformationList;
-	
-	@FindBy (xpath="//*[@id='siteWrap']/div/ul/li[2]")
-	public WebElement companyInfoHeader;
-	
-	@FindBy(xpath="//*[@id='siteWrap']/div[1]/section/header")
-	public WebElement topBrandsPage;
-	
-	@FindBy(xpath="/html/body/div[1]/section[2]/div/section[1]/h3")
-	public WebElement blogHeader;
-	
+	public List<WebElement> companyInformationLists;
+
 
 	public void yellowBannerTabsNavigate () {
 
-//		ArrayList<String>yellowBanner = new ArrayList<>
-//		(Arrays.asList("SUPER DEALS", "APP ONLY", "NEW ARRIVALS"));
-//		
-//		for(int i = 0; i < yellowTabList.size();i++) {
-//			System.out.println(yellowTabList.get(i).getText());
-//			yellowTabList.get(i).click();
-//		Assert.assertTrue(yellowTabList.get(i).getText().contains(yellowBanner.get(i)));
-//		
-//		}
+		String homePageURL;
+		String currentTabURL;
+
+		for(int i = 0; i < yellowTabList.size();i++) {
+
+			homePageURL = BaseClass.getDriver().getCurrentUrl();
+			yellowTabList.get(i).click();
+
+			currentTabURL = BaseClass.getDriver().getCurrentUrl();
+			Assert.assertTrue(homePageURL.equals(currentTabURL));
+
+		}
 	}
 
 	public void socialMediaButtonsAreClickableAndNavigate() {
 
-//		
-//		ArrayList<String>socialMediasBanner = new ArrayList<>
-//		(Arrays.asList("facebook","messenger","youtube","pinterest","vk","instragram","twitter","blog","tumblr"));
-//		
-//		for(int i = 0; i < socialMediaButtonsList.size();i++) {
-//			System.out.println(socialMediaButtonsList.get(i).getText());
-//			
-//			Assert.assertTrue(socialMediaButtonsList.get(i).getText().contains(socialMediasBanner.get(i)));
-//			
-//			BaseClass.getDriver().navigate().back();
-//		}
-		
-	}	
-		
+		String homePageURL;
+		String currentTabURL;
 
+		for(int i = 0; i < socialMediaButtonsList.size();i++) {
+
+			homePageURL = BaseClass.getDriver().getCurrentUrl();
+			socialMediaButtonsList.get(i).click();
+
+			currentTabURL = BaseClass.getDriver().getCurrentUrl();
+			Assert.assertTrue(homePageURL.equals(currentTabURL));
+
+		}
+
+	}
 
 	public void companyInformationLinksNavigate() {
 
-			for(int i = 0; i < companyInformationList.size();i++) {
+		String homePageURL;
+		String currentTabURL;
 
-			companyInformationList.get(i).click();
+		for(int i = 0; i < companyInformationLists.size();i++) {
 
-			Assert.assertTrue(companyInformationList.get(i).getText().equalsIgnoreCase(companyInfoHeader.getText()));
+			homePageURL = BaseClass.getDriver().getCurrentUrl();
+			companyInformationLists.get(i).click();
 
-			BaseClass.getDriver().navigate().back();
+			currentTabURL = BaseClass.getDriver().getCurrentUrl();
+			Assert.assertTrue(homePageURL.equals(currentTabURL));
+
 		}
 	}
 	
