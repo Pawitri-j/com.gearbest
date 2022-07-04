@@ -25,8 +25,11 @@ public class SumattaSteps extends CommonMethods {
 	@Then("Verify if user can change the language")
 	public void Verify_if_user_can_change_the_language() {
 
+		wait(1);
+		waitForClickability(h.googleLanguageButton);
 		h.googleLanguageButton.click();
 
+		//wait(2);
 		switchToFrame(h.googleFrame);
 
 		actionClickInListByText(h.languageList, BaseClass.getPropertyString("language"));
@@ -50,7 +53,8 @@ public class SumattaSteps extends CommonMethods {
 
 	@When("Select the currency")
 	public void select_the_currency() {
-
+		
+		waitForClickability(h.currencyDropDownBox);
 		h.currencyDropDownBox.click();
 		clickSpecificElementInListByText(h.currencyList, BaseClass.getPropertyString("currency"));
 	}

@@ -1,41 +1,73 @@
 package stepDefinitions;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.StaleElementReferenceException;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import utilities.BaseClass;
 import utilities.CommonMethods;
+import utilities.Constants;
 
 public class MariaSteps extends CommonMethods {
 	
 
-	//Scenario 1  Verify search functionality by keyword input
+	//Scenario 1  Verify search suggestion by keyword input
 	@Then("Verify User should be able to see suggestion drop down that matching the in put keyword")
 	public void verify_suggestion() {
-		 h.searchWordInputSuggestionList();
+		 
+		h.searchInput.sendKeys(" "); // if not put this in, it will not detect suggestion dropdown
+		waitVisibilityOfList(h.searchSuggestionsList);
+			try {
+				for (int i = 0; i < h.searchSuggestionsList.size(); i++) {
+					System.out.println(h.searchSuggestionsList.get(i).getText());
+					Assert.assertTrue(h.searchSuggestionsList.get(i).getText().contains(BaseClass.getPropertyString("searchItem1")));
+				}
+			} catch (Exception e) { 
+				// non-matching word
+				e.printStackTrace();
+				System.out.println(BaseClass.getPropertyString("warning message"));
+			}	
 	}
 
 	
-	//Scenario 2 Verify All button drop down list functionality
-	
+	//Scenario 2 Verify All button drop down list functionality	
 	@Given("User clicks All button on searchBar")
 	public void user_clicks_all_button_on_search_bar() {
-	    h.clickingSearchallBtn();
+	    h.AllButton.click();
 	}
 
-	@And("User clicks on each Tab in Options list")
+	@Then("User clicks on each Tab in Options list. Verify User should be able to navigate to correspondant tab page which is clicked")
 	public void user_clicks_on_each_tab_in_options_list()  {
-	  h.searchByAllButtonListOptions();
+		
+		for(int i=0;i<h.allDropDownSearchList.size();i++) {
+			h.searchInput.clear();
+			
+			String searchAllCategoriesText= h.allDropDownSearchList.get(i).getText();
+			System.out.println(searchAllCategoriesText);
+			h.allDropDownSearchList.get(i).click();
+			
+			h.searchInput.clear();
+			
+			waitForClickability(h.searchIcon);
+			h.searchIcon.click();
+			
+			BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+			
+			if (searchAllCategoriesText.equalsIgnoreCase("All")) {
+				System.out.println(BaseClass.getDriver().getCurrentUrl());
+				Assert.assertTrue(BaseClass.getDriver().getCurrentUrl().equalsIgnoreCase(BaseClass.getPropertyString("homePageURL")));
+			}else {
+				String categoryHeaderText = h.categoryHeader.getText();
+				System.out.println(categoryHeaderText);
+				Assert.assertTrue(searchAllCategoriesText.contains(categoryHeaderText));
+			}
+		
+			h.AllButton.click();
+		}
 	}
 
-	@Then("Verify User should be able to navigate to correspondant tab page which is clicked")
-	public void verify_user_should_be_able_to_navigate_to_correspondant_tab_page_which_is_clicked() {
-	 
-	  // h.searchTitleverification();
-		Assert.assertTrue(h.searchAllOptionHeader.isDisplayed());
-	}	
-	
 	
 	
 	
@@ -43,7 +75,24 @@ public class MariaSteps extends CommonMethods {
 	
 	@Then("User should be navigated to searched item page")
 	public void user_should_be_navigated_to_searched_item_page() {
-	   h.verifyItemsPage();
+	   
+		try {  
+			waitForVisibility(h.categoryHeader);    // element - found matching product
+			if(h.categoryHeader.isDisplayed()) {
+				String searchResultText =h.categoryHeader.getText();
+				
+				if (searchResultText.contains(BaseClass.getPropertyString("searchItem2"))) {
+					Assert.assertTrue(true);
+				}
+			}
+			
+			if(h.notMatchingMsg.isDisplayed()) {   // element - not found matching product
+				System.out.println(BaseClass.getPropertyString("notMatchingResult"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
 	}
 
 	

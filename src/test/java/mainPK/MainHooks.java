@@ -1,4 +1,4 @@
-package stepDefinitions;
+package mainPK;
 
 import org.junit.AfterClass;
 import io.cucumber.java.Before;
@@ -6,7 +6,7 @@ import io.cucumber.java.Scenario;
 import utilities.BaseClass;
 import utilities.CommonMethods;
 
-public class Hooks extends CommonMethods {
+public class MainHooks extends CommonMethods{
 
 	
 	@Before
@@ -27,9 +27,6 @@ public class Hooks extends CommonMethods {
 		BaseClass.tearDown();
 		
 	}
-	
-	
-	
 	
 	
 	

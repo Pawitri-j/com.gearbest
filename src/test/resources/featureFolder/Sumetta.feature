@@ -1,5 +1,5 @@
 @Sumetta
-Feature: HomePage9
+Feature: HomePage
 
 Background:
 Given User is navigated to Home page

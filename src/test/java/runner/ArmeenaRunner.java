@@ -15,7 +15,8 @@ import io.cucumber.junit.CucumberOptions;
 		
 		features = "src/test/resources/featureFolder/Armeena.feature",
 		glue = "stepDefinitions",
-		dryRun = false
+		dryRun = false,
+		monochrome = true
 		
 		)
 
