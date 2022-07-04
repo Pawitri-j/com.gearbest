@@ -59,6 +59,10 @@ public class ProductPage extends CommonMethods {
 	Assert.assertTrue(currentURL.contains(BaseClass.getPropertyString("productPageURL")));
 	}
 	
+	public void checkProductSortBy () {
+	Assert.assertTrue(sortByButtonsList.get(0).isDisplayed());
+	}
+	
 	
 	
 	

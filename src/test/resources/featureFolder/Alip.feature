@@ -5,7 +5,6 @@ Feature: ProductPage Functionality
   Given User is navigated to Home page
 
   Scenario: ProductPage Test 1
- 		Given User is navigated to Home page
 		When User search for product in search bar input "Iphone"
 		Then User should be on ProductPage 
 		Then Click on index 0 of product
@@ -13,7 +12,6 @@ Feature: ProductPage Functionality
 		
 		
 	Scenario:  ProductPage Test 2
-    Given User is navigated to Home page
 		When User search for product in search bar input "Ipad"
 		Then User should be on ProductPage
 		Then Click price button in sort by
@@ -23,7 +21,6 @@ Feature: ProductPage Functionality
 		
 
 	Scenario: ProductPage Test 3
-		Given User is navigated to Home page
 		When User search for product in search bar input "macbook"
 		Then User should be on ProductPage
 		Then Click and enter "min" and "max" price
