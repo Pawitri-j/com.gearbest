@@ -26,7 +26,7 @@ public class AlipSteps extends CommonMethods{
 
 	@Then("User should be on ProductPage")
 	public void user_should_be_on_product_page() {
-		p.checkProductPageURL();
+		p.checkProductSortBy();
 	}
 
 
@@ -87,9 +87,13 @@ public class AlipSteps extends CommonMethods{
 //	Scenario: ProductPage Test 3
 	
 	@Then("Click and enter {string} and {string} price")
-	public void click_and_enter_and_price(String minPrice, String maxprice) {
-		CommonMethods.sendText(p.minBox, BaseClass.getPropertyString("min"));
-	    CommonMethods.sendText(p.maxBox, BaseClass.getPropertyString("max"));
+	public void click_and_enter_and_price(String minPrice, String maxPrice) {
+		
+		minPrice = BaseClass.getPropertyString("min");
+		maxPrice = BaseClass.getPropertyString("max");
+		
+		CommonMethods.sendText(p.minBox, minPrice);
+	    CommonMethods.sendText(p.maxBox, maxPrice);
 	    
 	    CommonMethods.waitForClickability(p.okButtonInMinMax);
 	    p.okButtonInMinMax.click();
