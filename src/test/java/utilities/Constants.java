@@ -17,4 +17,7 @@ public class Constants {
 	public static ArrayList<String> socialMediasBanner 
 	= new ArrayList<>(Arrays.asList("facebook", "messenger", "youtube",
 			"pinterest", "vk", "instagram", "twitter", "blog", "tumblr"));
+	
+	public static ArrayList<String> yellowBanner = 
+			new ArrayList<>(Arrays.asList("flash-sale", "app-exclusive", "new-products"));
 }
