@@ -20,14 +20,14 @@ public class ArmeenaSteps extends CommonMethods {
 	public void user_click_on_each_tabs_on_yellow_banner_menu() {
 
 		
-		ArrayList<String> yellowBanner = new ArrayList<>(Arrays.asList("flash-sale", "app-exclusive", "new-products"));
+//		ArrayList<String> yellowBanner = new ArrayList<>(Arrays.asList("flash-sale", "app-exclusive", "new-products"));
 
 		for (int i = 0; i < h.yellowTabList.size(); i++) {
 		
 		BaseClass.getDriver().manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 
 			h.yellowTabList.get(i).click();
-			Assert.assertTrue(BaseClass.getDriver().getCurrentUrl().contains(yellowBanner.get(i)));
+			Assert.assertTrue(BaseClass.getDriver().getCurrentUrl().contains(Constants.yellowBanner.get(i)));
 
 		}
 
